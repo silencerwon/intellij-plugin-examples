@@ -1,24 +1,29 @@
 <idea-plugin>
-    <id>com.silencer.examples.github-issue-board</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+	<id>com.silencer.examples.github-issue-board</id>
+	<name>Plugin display name here</name>
+	<vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
-    <description><![CDATA[
+	<description><![CDATA[
     Enter short description for your plugin here.<br>
     <em>most HTML tags may be used</em>
     ]]></description>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+	<!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+		 on how to target different products -->
+	<!-- uncomment to enable plugin in all products
+	<depends>com.intellij.modules.lang</depends>
+	-->
 
-    <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-    </extensions>
+	<extensions defaultExtensionNs="com.intellij">
+		<!-- Add your extensions here -->
+		<applicationService serviceImplementation="com.silencer.examples.issueboard.IssueClient"/>
+		<toolWindow id="issueBoardToolWindow" anchor="bottom" factoryClass="com.silencer.examples.issueboard.IssueBoardToolWindowFactory"/>
+	</extensions>
 
-    <actions>
-        <!-- Add your actions here -->
-    </actions>
+	<actions>
+		<!-- Add your actions here -->
+		<action id="com.silencer.examples.issueboard" class="com.silencer.examples.issueboard.IssueListAction" text="Issue List" description="Get Issue List">
+			<add-to-group group-id="$LRU" anchor="first"/>
+		</action>
+	</actions>
 </idea-plugin>
