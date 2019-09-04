@@ -8,4 +8,8 @@ data class Issue(
         val title: String,
         val state: String,
         val url: String
-)
+) {
+    fun asArray(): Array<String> {
+        return arrayOf(issueNo.toString(), title, state, url);
+    }
+}

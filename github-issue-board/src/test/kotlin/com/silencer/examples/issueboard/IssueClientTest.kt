@@ -4,14 +4,14 @@ import org.junit.Test
 
 internal class IssueClientTest {
     @Test
-    fun getIssue() {
+    fun getIssueList() {
         // given
         val issueClient = IssueClient()
 
         // when
-        val issueList = issueClient.getIssue();
+        val issueList = issueClient.getIssueList();
 
         // then
-        println(issueList.get(0))
+        println(issueList[0])
     }
 }
